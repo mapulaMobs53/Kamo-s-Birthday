@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Dancy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="star-cursor" id="cursor">✦</div>
+
+<div id="main-home">
+
+    <!-- Ambient background blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Decorative grid lines -->
+    <div class="grid-lines">
+        <div class="vline v1"></div>
+        <div class="vline v2"></div>
+        <div class="hline h1"></div>
+        <div class="hline h2"></div>
+    </div>
+
+    <!-- Main layout -->
+    <div class="layout">
+
+        <!-- LEFT: text content -->
+        <div class="content-side">
+
+            <div class="tag-line reveal delay-1">
+                <span class="dot"></span>
+                <span>SHE BUILDS. SHE THRIVES.</span>
+                <span class="dot"></span>
+            </div>
+
+            <h1 class="birthday-text reveal delay-2">
+                Happy<br>
+                <em>22<sup>nd</sup></em><br>
+                Birthday
+            </h1>
+
+            <div class="divider reveal delay-3">
+                <span class="line"></span>
+                <span class="diamond">◆</span>
+                <span class="line"></span>
+            </div>
+
+            <p class="name reveal delay-4">Dancyyyy</p>
+
+            <p class="message reveal delay-5">
+                Happy womb escape day, chomam <span class="emoji">😝</span><br>
+                <span class="sub">may your code compile & your year be bug-free ✨</span>
+            </p>
+
+            <div class="badge reveal delay-6">
+                <span class="badge-icon">⟨/⟩</span>
+                <span>Women in Tech · Class of 2024</span>
+            </div>
+
+        </div>
+    <!-- RIGHT: photo panel -->
+    <div class="photo-side reveal delay-2">
+
+        <a href="birthday.html" class="photo-link">
+
+            <div class="photo-frame">
+                <div class="frame-corner fc-tl"></div>
+                <div class="frame-corner fc-tr"></div>
+                <div class="frame-corner fc-bl"></div>
+                <div class="frame-corner fc-br"></div>
+
+                <div class="photo-inner">
+                    <img src="welcome.jpeg" alt="Dancy Birthday" />
+                </div>
+
+                <div class="photo-glow"></div>
+            </div>
+
+        </a>
+
+        <!-- floating chips -->
+        <div class="chip chip-1 float-1">✦ 22</div>
+        <div class="chip chip-2 float-2">{ } Dev</div>
+        <div class="chip chip-3 float-3">🌸 girlie</div>
+
+    </div>
+
+    <!-- Bottom strip -->
+    <div class="bottom-strip reveal delay-6">
+        <span>✦</span>
+        <span>Happy Birthday</span>
+        <span>✦</span>
+        <span>Make It Count</span>
+        <span>✦</span>
+        <span>She Codes</span>
+        <span>✦</span>
+        <span>Happy Birthday</span>
+        <span>✦</span>
+        <span>Make It Count</span>
+        <span>✦</span>
+        <span>She Codes</span>
+        <span>✦</span>
+    </div>
+
+</div>
+
+<script>
+// Star cursor
+const cursor = document.getElementById("cursor");
+
+document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top  = e.clientY + "px";
+});
+
+// Sparkle trail on click
+document.addEventListener("click", e => {
+    for (let i = 0; i < 6; i++) {
+        const s = document.createElement("div");
+        s.className = "sparkle";
+        s.style.left = e.clientX + "px";
+        s.style.top  = e.clientY + "px";
+        s.style.setProperty("--dx", (Math.random() * 80 - 40) + "px");
+        s.style.setProperty("--dy", (Math.random() * 80 - 40) + "px");
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 700);
+    }
+});
+
+// Staggered reveal on load
+document.querySelectorAll(".reveal").forEach(el => {
+    el.classList.add("hidden");
+    setTimeout(() => el.classList.add("visible"), 100);
+});
+</script>
+
+</body>
+</html>
